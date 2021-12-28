@@ -1,0 +1,36 @@
+.t1 {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.t2 {
+    font-size: 40px;
+    text-decoration: hotpink;
+}
+
+.t3 {
+    font-size: 20px;
+}
+
+.imageContainer {
+    height: 70vh;
+    width: 30vw;
+    height: 100%;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border: 1px solid red; */
+    opacity: 1;
+}
+
+.image:hover {
+    opacity: 0.5;
+}
+
+p span {
+    background-color: aqua;
+}
