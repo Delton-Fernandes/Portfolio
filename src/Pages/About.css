@@ -27,9 +27,9 @@
     opacity: 1;
 }
 
-.image:hover {
-    opacity: 0.5;
-}
+/* .image:hover {
+    opacity: 0.4;
+} */
 
 p span {
     background-color: aqua;

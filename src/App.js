@@ -30,6 +30,10 @@ function App() {
                 </div>
             </section>
 
+            <div class="pimg1">
+                <div class="ptext"></div>
+            </div>
+
             <section id="projects">
                 <div className="backGround">
                     <div style={{ paddingTop: "10vh" }}>
@@ -49,6 +53,7 @@ function App() {
                     </div>
                 </div>
             </section>
+
             <div class="pimg1">
                 <div class="ptext"></div>
             </div>
