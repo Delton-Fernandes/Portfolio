@@ -9,6 +9,8 @@ import {
 import "./About.css";
 
 function ProjectsPage() {
+    let screenwidth = window.innerWidth;
+
     return (
         <Container>
             <Row>
@@ -22,7 +24,7 @@ function ProjectsPage() {
                 </Col>
                 <Col>
                     <div>
-                        <p className="t1" id="text">
+                        <p className="t1">
                             <span>Projects</span>
                         </p>
                         <p className="t2">
@@ -31,6 +33,7 @@ function ProjectsPage() {
                                 enim adipisicing adipisicing.
                             </span>
                         </p>
+                        {screenwidth > "970px" ? <p>hi</p> : <p>byy</p>}
                         <p className="t3">
                             <span>
                                 Aliqua velit reprehenderit voluptate et
