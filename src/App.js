@@ -1,7 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Button } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import AboutMePage from "./Pages/About";
 import ProjectsPage from "./Pages/Projects";
 import WorkExperiencePage from "./Pages/WorkExperience";
