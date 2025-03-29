@@ -1,22 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import reportWebVitals from "./reportWebVitals";
-import StartCarouselSection from "./Components/StartCarouselSection";
-import App from "./App";
-import TopNavBar from "./Components/NavBar";
-import { BrowserRouter, Router } from "react-router-dom";
-import AboutMePage from "./Pages/About";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { UploadProvider } from './context/UploadContext';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <>
-            <BrowserRouter>
-                <App></App>
-            </BrowserRouter>
-        </>
-    </React.StrictMode>,
-    document.getElementById("root")
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <UploadProvider>
+      <App/>
+    </UploadProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
