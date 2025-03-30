@@ -1,11 +1,41 @@
-// src/components/PhotoGallery.jsx
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Card, Container, Row, Col } from "react-bootstrap";
+
+const API_BASE_URL = "http://192.168.0.49:5000/api/blob";
 
 const PhotoGallery = () => {
-  // Sample data, replace with actual shared state or props from PhotoSharingApp
-  const [files] = useState([]); // Replace with actual file list
+  const [files, setFiles] = useState([]);
+
+  useEffect(() => {
+    const fetchBlobs = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/list`);
+        const blobNames = await response.json();
+
+        const filesWithUrls = blobNames.map((name) => ({
+          name,
+          url: `${API_BASE_URL}/download/${name}`,
+        }));
+
+        setFiles(filesWithUrls);
+      } catch (error) {
+        console.error("Error fetching blobs:", error);
+      }
+    };
+
+    fetchBlobs();
+  }, []);
+
+  const handleDelete = async (fileName) => {
+    try {
+      await fetch(`${API_BASE_URL}/delete/${fileName}`, { method: "DELETE" });
+      setFiles(files.filter((file) => file.name !== fileName));
+    } catch (error) {
+      console.error("Error deleting blob:", error);
+    }
+  };
+  
 
   return (
     <Container className="py-5">
@@ -23,19 +53,10 @@ const PhotoGallery = () => {
           files.map((file, index) => (
             <Col key={index} xs={12} sm={6} md={4} lg={3}>
               <Card className="shadow-sm">
-                {file.type.startsWith('image') ? (
-                  <Card.Img
-                    variant="top"
-                    src={URL.createObjectURL(file)}
-                    alt={file.name}
-                    className="rounded"
-                  />
+                {file.url.endsWith(".mp4") ? (
+                  <video src={file.url} controls className="w-100 rounded" />
                 ) : (
-                  <video
-                    src={URL.createObjectURL(file)}
-                    controls
-                    className="w-100 rounded"
-                  />
+                  <Card.Img variant="top" src={file.url} alt={file.name} className="rounded" />
                 )}
               </Card>
             </Col>

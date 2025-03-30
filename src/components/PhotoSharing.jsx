@@ -1,16 +1,43 @@
-// src/components/PhotoSharingApp.jsx
 import { useState } from 'react';
 import { useUploadContext } from '../context/UploadContext';
-import { Card, Button, Container, Row, Col, Form } from 'react-bootstrap';
+import { Card, Button, Container, Row, Col, Form, ProgressBar } from 'react-bootstrap';
 import { Upload } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const API_BASE_URL = "http://192.168.0.49:5000/api/blob";
+
 export default function PhotoSharingApp() {
   const { files, setFiles } = useUploadContext();
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
 
-  const handleFileUpload = (event) => {
+  const handleFileUpload = async (event) => {
     const uploadedFiles = Array.from(event.target.files);
-    setFiles((prevFiles) => [...prevFiles, ...uploadedFiles]);
+    setIsUploading(true);
+    setUploadProgress(0);
+
+    for (let i = 0; i < uploadedFiles.length; i++) {
+      const file = uploadedFiles[i];
+      const formData = new FormData();
+      formData.append("file", file);
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/upload`, {
+          method: "POST",
+          body: formData,
+        });
+
+        const result = await response.json();
+        console.log("API Response:", result);
+
+        setFiles((prevFiles) => [...prevFiles, { name: result.filename, url: result.url }]);
+        setUploadProgress(((i + 1) / uploadedFiles.length) * 100);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+
+    setIsUploading(false);
   };
 
   return (
@@ -38,6 +65,10 @@ export default function PhotoSharingApp() {
         </Form.Label>
       </Form.Group>
 
+      {isUploading && (
+        <ProgressBar animated now={uploadProgress} label={`${Math.round(uploadProgress)}%`} className="mb-4" />
+      )}
+
       <Row className="g-4">
         {files.length === 0 ? (
           <Col className="text-center">
@@ -47,16 +78,16 @@ export default function PhotoSharingApp() {
           files.map((file, index) => (
             <Col key={index} xs={12} sm={6} md={4} lg={3}>
               <Card className="shadow-sm">
-                {file.type.startsWith('image') ? (
+                {file ? (
                   <Card.Img
                     variant="top"
-                    src={URL.createObjectURL(file)}
+                    src={file.url}
                     alt={file.name}
                     className="rounded"
                   />
                 ) : (
                   <video
-                    src={URL.createObjectURL(file)}
+                    src={file.url}
                     controls
                     className="w-100 rounded"
                   />
