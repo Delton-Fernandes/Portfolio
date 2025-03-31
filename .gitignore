@@ -23,5 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 __azurite_db_blob__.json
 __azurite_db_blob_extent__.json
-__blobstorage__/89199d01-e642-4bf6-abc8-c5ded7e2aff6
-__blobstorage__/AzuriteConfig
+__blobstorage__*
