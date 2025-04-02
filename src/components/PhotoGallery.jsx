@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card, Container, Row, Col } from "react-bootstrap";
 
-const API_BASE_URL = "http://192.168.0.49:5000/api/blob";
+const API_BASE_URL = "http://localhost:5000/api/blob";
 
 const PhotoGallery = () => {
   const [files, setFiles] = useState([]);
@@ -58,6 +58,15 @@ const PhotoGallery = () => {
                 ) : (
                   <Card.Img variant="top" src={file.url} alt={file.name} className="rounded" />
                 )}
+                <Card.Body>
+                  <Card.Title>{file.name}</Card.Title>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(file.name)}
+                  >
+                    Delete
+                  </button>
+                </Card.Body>
               </Card>
             </Col>
           ))

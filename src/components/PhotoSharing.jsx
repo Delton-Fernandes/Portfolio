@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useUploadContext } from '../context/UploadContext';
-import { Card, Button, Container, Row, Col, Form, ProgressBar } from 'react-bootstrap';
+import { Card, Container, Row, Col, Form, ProgressBar } from 'react-bootstrap';
 import { Upload } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const API_BASE_URL = "http://192.168.0.49:5000/api/blob";
+const API_BASE_URL = "http://localhost:5000/api/blob";
 
 export default function PhotoSharingApp() {
   const { files, setFiles } = useUploadContext();
