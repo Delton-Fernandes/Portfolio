@@ -1,17 +1,20 @@
-import './App.css';
+import "./App.css";
 import PhotoSharingApp from "./components/PhotoSharing";
-import PhotoGallery from './components/PhotoGallery';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import PhotoGallery from "./components/PhotoGallery";
 
 function App() {
+  const path = window.location.pathname;
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<PhotoSharingApp />} />
-        <Route path="/gallery" element={<PhotoGallery />} />
-      </Routes>
-    </Router>
+    <div>
+      {/* <nav>
+        <a href="/">Home</a>
+        <a href="/gallery">Gallery</a>
+      </nav> */}
+
+      {path === "/" && <PhotoSharingApp />}
+      {path === "/gallery" && <PhotoGallery />}
+    </div>
   );
 }
 
