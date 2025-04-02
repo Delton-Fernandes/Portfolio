@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Card, Container, Row, Col } from "react-bootstrap";
 
 const API_BASE_URL = "http://localhost:5000/api/blob";
@@ -74,9 +73,9 @@ const PhotoGallery = () => {
       </Row>
 
       <footer className="text-center mt-5">
-        <Link to="/" className="btn btn-link text-primary">
-          Back to Upload Page
-        </Link>
+      <a href="/" className="btn btn-link text-primary">
+        Back to Upload Page
+      </a>
       </footer>
     </Container>
   );

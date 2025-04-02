@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useUploadContext } from '../context/UploadContext';
 import { Card, Container, Row, Col, Form, ProgressBar } from 'react-bootstrap';
 import { Upload } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const API_BASE_URL = "http://localhost:5000/api/blob";
 
@@ -99,9 +98,9 @@ export default function PhotoSharingApp() {
       </Row>
 
       <footer className="text-center mt-5">
-        <Link to="/gallery" className="btn btn-link text-primary">
+        <a href="/gallery" className="btn btn-link text-primary">
           Go to Gallery
-        </Link>
+        </a>
       </footer>
     </Container>
   );
