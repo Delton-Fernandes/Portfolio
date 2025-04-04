@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useUploadContext } from '../context/UploadContext';
 import { Card, Container, Row, Col, Form, ProgressBar } from 'react-bootstrap';
 import { Upload } from 'lucide-react';
+import.meta.env;
 
-const API_BASE_URL = "http://localhost:5000/api/blob";
+const API_BASE_URL = import.meta.env.VITE_IMAGE_LIB_BASE_URI;
 
 export default function PhotoSharingApp() {
   const { files, setFiles } = useUploadContext();
@@ -47,7 +48,7 @@ export default function PhotoSharingApp() {
           alt="Birthday Banner"
           className="img-fluid rounded shadow mb-3"
         />
-        <h1 className="display-4 text-primary">Dawson's First Birthday 🎉</h1>
+        <h1 className="display-4 text-primary">Dawson's Bapstism 🎉</h1>
         <p className="text-muted">Share your special moments from the event!</p>
       </header>
 
