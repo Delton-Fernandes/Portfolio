@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://delton.fernandes/",
-
   "scripts": {
     "predeploy": "npm run build",
-    "deploy" : "gh-pages -d dist",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -19,7 +18,8 @@
     "lucide-react": "^0.485.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.4.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

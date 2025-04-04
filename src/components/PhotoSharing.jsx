@@ -48,7 +48,7 @@ export default function PhotoSharingApp() {
           alt="Birthday Banner"
           className="img-fluid rounded shadow mb-3"
         />
-        <h1 className="display-4 text-primary">Dawson's Bapstism 🎉</h1>
+        <h1 className="display-4 text-primary">Dawson's Baptism 🎉</h1>
         <p className="text-muted">Share your special moments from the event!</p>
       </header>
 
@@ -69,37 +69,39 @@ export default function PhotoSharingApp() {
         <ProgressBar animated now={uploadProgress} label={`${Math.round(uploadProgress)}%`} className="mb-4" />
       )}
 
-      <Row className="g-4">
-        {files.length === 0 ? (
-          <Col className="text-center">
-            <p className="text-muted">No uploads yet. Be the first to share a memory! 🎂</p>
-          </Col>
-        ) : (
-          files.map((file, index) => (
-            <Col key={index} xs={12} sm={6} md={4} lg={3}>
-              <Card className="shadow-sm">
-                {file ? (
-                  <Card.Img
-                    variant="top"
-                    src={file.url}
-                    alt={file.name}
-                    className="rounded"
-                  />
-                ) : (
-                  <video
-                    src={file.url}
-                    controls
-                    className="w-100 rounded"
-                  />
-                )}
-              </Card>
-            </Col>
-          ))
-        )}
-      </Row>
+      {files.length === 0 ? (
+        <Col className="text-center">
+          <p className="text-muted">No uploads yet. Be the first to share a memory! 🎂</p>
+        </Col>
+      ) : (
+        <>
+          <Row className="g-4">
+            {files.map((file, index) => (
+              <Col key={index} xs={12} sm={6} md={4} lg={3}>
+                <Card className="shadow-sm">
+                  {file ? (
+                    <Card.Img
+                      variant="top"
+                      src={file.url}
+                      alt={file.name}
+                      className="rounded"
+                    />
+                  ) : (
+                    <video
+                      src={file.url}
+                      controls
+                      className="w-100 rounded"
+                    />
+                  )}
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </>
+      )}
 
       <footer className="text-center mt-5">
-        <a href="/gallery" className="btn btn-link text-primary">
+        <a href="/#/gallery" className="btn btn-link text-primary">
           Go to Gallery
         </a>
       </footer>

@@ -1,0 +1,68 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+  /* Container for the 404 Page */
+  .notfound-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  /* Content Style */
+  .notfound-content h1 {
+    font-size: 3rem;
+    color: #2d3436;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .notfound-content p {
+    font-size: 1.2rem;
+    color: #636e72;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  /* Button Style */
+  .home-button {
+    background-color: #2ecc71;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    transform: scale(1.05);
+    background-color: #27ae60;
+  }
+  
+  /* Animation for Fade-in */
+  .notfound-container {
+    animation: fadeIn 1.2s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
