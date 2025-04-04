@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+
 # testing
 /coverage
 
@@ -159,3 +160,7 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+__azurite_db_table__.json
+__azurite_db_queue_extent__.json
+AzuriteConfig
+__azurite_db_queue__.json
