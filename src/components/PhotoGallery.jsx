@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 
+import "./PhotoSharing.css";
+
 const API_BASE_URL = import.meta.env.VITE_IMAGE_LIB_BASE_URI;
 
 const PhotoGallery = () => {

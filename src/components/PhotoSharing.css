@@ -1,0 +1,100 @@
+body {
+    background: #FFFDF6; /* Off-white cream background */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  /* Soft flare radial backgrounds */
+  body::before {
+    content: "";
+    position: absolute;
+    top: -200px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #FFE5EC 0%, transparent 70%);
+    z-index: 0;
+  }
+  
+  body::after {
+    content: "";
+    position: absolute;
+    bottom: -200px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #FCD5CE 0%, transparent 70%);
+    z-index: 0;
+  }
+  
+  .custom-container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 30px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    z-index: 1;
+  }
+  
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #FFCAD4;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  
+  .custom-upload-label {
+    background: #FFF0F3;
+    border: 2px dashed #FF8FA3;
+    padding: 2rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-upload-label:hover {
+    background: #FFE5EC;
+    cursor: pointer;
+  }
+  
+  .custom-progress .progress-bar {
+    background-color: #FF8FA3;
+  }
+  
+  /* Decorative icon styling */
+  .decor-icon {
+    position: absolute;
+    width: 60px;
+    opacity: 0.8;
+    z-index: 2;
+  }
+  
+  .top-left {
+    top: -20px;
+    left: -20px;
+  }
+  
+  .top-right {
+    top: -20px;
+    right: -20px;
+  }
+  
+  .bottom-left {
+    bottom: -20px;
+    left: -20px;
+  }
+  
+  .bottom-right {
+    bottom: -20px;
+    right: -20px;
+  }
+  
+  /* Chocolate brown heading */
+  h1.display-4 {
+    color: #5C4033; /* Rich chocolate brown */
+  }
+  

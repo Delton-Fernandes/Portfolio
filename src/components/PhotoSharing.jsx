@@ -41,19 +41,27 @@ export default function PhotoSharingApp() {
   };
 
   return (
-    <Container className="py-5">
-      <header className="text-center mb-4">
-        <img
-          src="/birthday-banner.jpg"
-          alt="Birthday Banner"
-          className="img-fluid rounded shadow mb-3"
-        />
+    <Container className="py-5 custom-container">
+      {/* Decorative icons */}
+      <img src="/decor-pacifier.png" className="decor-icon top-left" alt="decor" />
+      <img src="/decor-rattle.png" className="decor-icon top-right" alt="decor" />
+      <img src="/decor-pacifier.png" className="decor-icon bottom-left" alt="decor" />
+      <img src="/decor-rattle.png" className="decor-icon bottom-right" alt="decor" />
+
+      <header className="text-center mb-5">
+        <div className="profile-pic mx-auto mb-3">
+          <img
+            src="/birthday-banner.png"
+            alt="Dawson"
+            className="img-fluid"
+          />
+        </div>
         <h1 className="display-4 text-primary">Dawson's Baptism 🎉</h1>
-        <p className="text-muted">Share your special moments from the event!</p>
+        <p className="text-muted">Share your beautiful memories!</p>
       </header>
 
       <Form.Group className="text-center mb-4">
-        <Form.Label className="d-block p-4 border border-primary rounded bg-light shadow-sm cursor-pointer">
+        <Form.Label className="custom-upload-label">
           <Upload size={40} className="text-primary mb-2" />
           <span className="text-muted font-weight-bold">Click to upload photos/videos</span>
           <Form.Control
@@ -66,38 +74,39 @@ export default function PhotoSharingApp() {
       </Form.Group>
 
       {isUploading && (
-        <ProgressBar animated now={uploadProgress} label={`${Math.round(uploadProgress)}%`} className="mb-4" />
+        <ProgressBar
+          animated
+          now={uploadProgress}
+          label={`${Math.round(uploadProgress)}%`}
+          className="mb-4 custom-progress"
+        />
       )}
 
       {files.length === 0 ? (
         <Col className="text-center">
-          <p className="text-muted">No uploads yet. Be the first to share a memory! 🎂</p>
-        </Col>
+  <p className="text-muted mb-3">
+    No uploads from you — Check out what other people have <a href="/#/gallery" className="text-primary text-decoration-underline">uploaded</a> ! 🎉
+  </p>
+</Col>
       ) : (
-        <>
-          <Row className="g-4">
-            {files.map((file, index) => (
-              <Col key={index} xs={12} sm={6} md={4} lg={3}>
-                <Card className="shadow-sm">
-                  {file ? (
-                    <Card.Img
-                      variant="top"
-                      src={file.url}
-                      alt={file.name}
-                      className="rounded"
-                    />
-                  ) : (
-                    <video
-                      src={file.url}
-                      controls
-                      className="w-100 rounded"
-                    />
-                  )}
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </>
+        <Row className="g-4">
+          {files.map((file, index) => (
+            <Col key={index} xs={12} sm={6} md={4} lg={3}>
+              <Card className="shadow-sm">
+                {file.url.endsWith(".mp4") ? (
+                  <video src={file.url} controls className="w-100 rounded" />
+                ) : (
+                  <Card.Img
+                    variant="top"
+                    src={file.url}
+                    alt={file.name}
+                    className="rounded"
+                  />
+                )}
+              </Card>
+            </Col>
+          ))}
+        </Row>
       )}
 
       <footer className="text-center mt-5">
