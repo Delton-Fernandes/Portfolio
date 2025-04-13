@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card, Container, Row, Col, Spinner, Button} from "react-bootstrap";
+import { Card, Container, Row, Col, Spinner, Button } from "react-bootstrap";
 import "./PhotoSharing.css";
 
 const API_BASE_URL = import.meta.env.VITE_IMAGE_LIB_BASE_URI;
@@ -33,7 +33,7 @@ const PhotoGallery = () => {
   // Helper function to check if file is video
   const isVideoFile = (fileName) => {
     const extension = fileName.split('.').pop().toLowerCase();
-    return ['mp4', 'webm', 'ogg','mov'].includes(extension);
+    return ['mp4', 'webm', 'ogg', 'mov'].includes(extension);
   };
 
   const handleDownloadAll = () => {
@@ -77,6 +77,7 @@ const PhotoGallery = () => {
                 <div className="position-relative gallery-item">
                   {isVideoFile(file.name) ? (
                     <video
+                      autoPlay muted loop playsInline
                       src={file.url}
                       controls
                       className="w-100 rounded"
