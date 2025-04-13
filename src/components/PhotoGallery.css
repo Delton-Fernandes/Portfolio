@@ -1,0 +1,24 @@
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+.gallery-item {
+  position: relative;
+}
+
+@media (max-width: 576px) {
+  video {
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+    .btn {
+      width: 100%;
+    }
+  }
+  
