@@ -36,6 +36,11 @@ const PhotoGallery = () => {
     return ['mp4', 'webm', 'ogg', 'mov'].includes(extension);
   };
 
+  const getFileExtension = (fileName) => {
+    const extension = fileName.split('.').pop().toLowerCase();
+    return extension;
+  };
+
   const handleDownloadAll = () => {
     console.log(files);
     files.forEach((file) => {
@@ -77,11 +82,15 @@ const PhotoGallery = () => {
                 <div className="position-relative gallery-item">
                   {isVideoFile(file.name) ? (
                     <video
-                      autoPlay muted loop playsInline
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
                       src={file.url}
                       controls
                       className="w-100 rounded"
                       preload="metadata"
+                      typeof={"video/" + getFileExtension(file.name)}
                       onError={() => console.error(`Could not load video: ${file.name}`)}
                     />
                   ) : (
