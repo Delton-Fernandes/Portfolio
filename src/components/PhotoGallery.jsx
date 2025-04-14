@@ -38,6 +38,9 @@ const PhotoGallery = () => {
 
   const getFileExtension = (fileName) => {
     const extension = fileName.split('.').pop().toLowerCase();
+    if (extension === "mov") {
+      return "quicktime";
+    }
     return extension;
   };
 
