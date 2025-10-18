@@ -26,7 +26,7 @@ body {
     right: -150px;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, #FCD5CE 0%, transparent 70%);
+    background: radial-gradient(circle, #FCD5CE 0%, transparent 50%);
     z-index: 0;
   }
   
