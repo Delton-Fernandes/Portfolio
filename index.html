@@ -1,13 +1,185 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ripley Hand Car Wash</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      font-family: 'Rubik', sans-serif;
+      background-color: #f0f2f5;
+    }
+    .navbar {
+      background-color: #007bff;
+    }
+    .navbar-brand {
+      color: white;
+      font-weight: 600;
+    }
+    .hero {
+      background: linear-gradient(to right, #007bff, #00c6ff);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in;
+    }
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .section {
+      padding: 60px 20px;
+    }
+    .price-table {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+      transition: transform 0.3s;
+    }
+    .price-table:hover {
+      transform: translateY(-5px);
+    }
+    .price-table h4 {
+      color: #007bff;
+    }
+    .price-table ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .price-table ul li::before {
+      content: "\f00c";
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      margin-right: 10px;
+      color: #00c6ff;
+    }
+    .contact {
+      background: #ffffff;
+      padding: 60px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #343a40;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">Ripley Car Wash</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <img src="logo.png" alt="Ripley Logo" class="hero-logo">
+    <h1>Ripley Hand Car Wash</h1>
+    <p>Professional Car Care You Can Trust</p>
+  </div>
+
+  <div class="section container">
+    <h2 class="text-center mb-5">Services & Pricing</h2>
+
+    <div class="price-table">
+      <h4>Express Service</h4>
+      <ul>
+        <li>Hand Wash & Coat it</li>
+        <li>Leathered Dry</li>
+        <li>Tyre Shine</li>
+        <li>Wheels Cleaned</li>
+        <li>Door Shuts Polished</li>
+      </ul>
+      <p><strong>Small Car:</strong> €13 | <strong>Medium Car:</strong> €15 | <strong>4x4 / MPV:</strong> €18</p>
+    </div>
+
+    <div class="price-table">
+      <h4>Mini Valet</h4>
+      <ul>
+        <li>Hand Wash & Coat it</li>
+        <li>Windows In / Out</li>
+        <li>Vacuum & Dash Polish</li>
+        <li>Wheels & Tyre Shine</li>
+        <li>Bumpers & Tyres Cleaned</li>
+      </ul>
+      <p><strong>Small Car:</strong> €25 | <strong>Medium Car:</strong> €28 | <strong>4x4 / MPV:</strong> €33</p>
+    </div>
+
+    <div class="price-table">
+      <h4>Super Valet</h4>
+      <ul>
+        <li>Spray Hand Polish</li>
+        <li>Door Shuts Polished</li>
+        <li>All Interior Plastics Cleaned</li>
+      </ul>
+      <p><strong>Small Car:</strong> €25 | <strong>Medium Car:</strong> €28 | <strong>4x4 / MPV:</strong> €33</p>
+    </div>
+
+    <div class="price-table">
+      <h4>Valeting Service</h4>
+      <ul>
+        <li>Hand Wash Dry & Coat it</li>
+        <li>Windows In / Out</li>
+        <li>Vacuum & Dash Coat it</li>
+        <li>Wheels & Tyre Shine</li>
+        <li>Door Shuts Polished</li>
+        <li>Seats, Carpets, Door Panels Steam Cleaned</li>
+        <li>Boot Carpet & Luggage Area Cleaned</li>
+      </ul>
+      <p><strong>Price on Request</strong></p>
+    </div>
+
+    <div class="price-table">
+      <h4>Special Vehicles</h4>
+      <ul>
+        <li>Vans</li>
+        <li>Motorhomes</li>
+        <li>Caravans</li>
+        <li>Horse Boxes</li>
+      </ul>
+      <p><strong>Price on Request</strong></p>
+    </div>
+
+    <div class="mt-4">
+      <p class="text-muted"><em>Ripley Hand Car Wash accepts no responsibility for loss or damage to vehicles or their contents, however caused, whilst on the premises. Management reserves the right to refuse service to any customer who uses offensive language towards staff.</em></p>
+    </div>
+  </div>
+
+  <div class="section container contact">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Ripley Hand Car Wash. All rights reserved.</p>
+  </footer>
+</body>
 </html>
